@@ -21,13 +21,9 @@ class TableBody  extends Component {
         return ( 
             <tbody>
             
-            {
-    
-            console.log(movies[1])}
             {movies.map(item =>
-            <tr>
-            {/* {console.log(`it is here inside tr ${movies[1].title}  adn and ${item._id}`)} */}
-            {/* {columns.map(column =>  <td key={this.createKey(item ,column)}>{this.renderCell(item,column) }</td>)} */}
+            <tr key={item._id}>
+            {columns.map(column =>  <td key={this.createKey(item ,column)}>{this.renderCell(item,column) }</td>)}
               
             </tr> )} 
             

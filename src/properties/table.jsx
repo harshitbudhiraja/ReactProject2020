@@ -9,7 +9,6 @@ const Table = ( props) => {
     <table className="table" style={{marginTop: "1rem"}}>
     
     <TableHeader columns={columns} sortColumn ={sortColumn} onSort={onSort}/>
-    {/* {console.log(`this is the movies from table (3) movies= ${movies}`)} */}
     <TableBody movies={movies} columns={columns} />
     
     </table> );

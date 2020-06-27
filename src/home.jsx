@@ -84,7 +84,6 @@ class moviesMap extends Component {
         const {totalCount, movies} = this.getPageData();
         
         if(this.state.movies.length === 0) return <h3  style={{color :"lightblue", fontStyle:"Arial" , textalign: "center" ,marginTop: "1rem" , marginLeft: "10px"}}> THERE ARE NO MOVIES LEFT IN THE DATABASE</h3>
-        // {console.log(`this is the movies from home (1) movies= ${movies}`)};
         return ( 
             <div className="row" style={{display : "flex"}}>
             
@@ -105,6 +104,7 @@ class moviesMap extends Component {
                 
                 <MoviesTable
                 movies={movies} 
+
                 sortColumn={sortColumn}
                 onLike={this.handleLike}
                 onDelete={this.handleDelete}
