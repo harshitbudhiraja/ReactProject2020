@@ -4,11 +4,12 @@ import getMovies from './services/fakeMovieService';
 import Pagination from './properties/pagination';
 import {paginate} from './utilities/paginate'; 
 import ListGroup from './properties/listing';
-import { getGenres, genres } from './services/fakeGenreService';
+import { getGenres } from './services/fakeGenreService';
 import MoviesTable from './properties/moviesTable';
 import _ from 'lodash';
 
-class moviesMap extends Component {
+
+class MoviesMap extends Component {
     state = { count : 0  , movies: [], pageSize : 4 , currentPage : 1 ,
          genre : [] , selectedGenre: "" , sortColumn : {path : 'title' , order: 'asc'}}  
 
@@ -75,20 +76,19 @@ class moviesMap extends Component {
         const movies = paginate( sorted , currentPage , pageSize );
 
         return {totalCount : filteredMovies.length , movies: movies}
-        }
-        
+    }
+    
     render(){
         const count  =  this.state.movies.length;
-        const { pageSize , currentPage ,selectedGenre, movies: myMovies , sortColumn } = this.state;
-
-        const {totalCount, movies} = this.getPageData();
+        const { pageSize , currentPage , movies: myMovies , sortColumn } = this.state;
         
+        const {totalCount, movies} = this.getPageData();        
         if(this.state.movies.length === 0) return <h3  style={{color :"lightblue", fontStyle:"Arial" , textalign: "center" ,marginTop: "1rem" , marginLeft: "10px"}}> THERE ARE NO MOVIES LEFT IN THE DATABASE</h3>
-        return ( 
-            <div className="row" style={{display : "flex"}}>
-            
+        return (
+            <React.Fragment>
+           
+            <div className="row" style={{display : ""}}>
                 
-               
 
                 <div className="col-2">
                     <ListGroup items={this.state.genre}
@@ -100,11 +100,12 @@ class moviesMap extends Component {
                 </div>
                 
                 <div className="col">
-                <h4  style={{marginTop: "1rem"}}> THERE ARE {totalCount} MOVIES IN THE DATABASE</h4>
-                
-                <MoviesTable
-                movies={movies} 
 
+                <h4  style={{marginTop: "1rem"}}> THERE ARE {totalCount} MOVIES IN THE DATABASE</h4>
+
+             <MoviesTable
+                movies={movies} 
+                
                 sortColumn={sortColumn}
                 onLike={this.handleLike}
                 onDelete={this.handleDelete}
@@ -115,17 +116,18 @@ class moviesMap extends Component {
          pageSize={pageSize}
          onPageChange ={this.handlePageChange}
          currentPage ={currentPage}
-        />
+         />
 </div>
                 
             
        
         
          </div>
+         </React.Fragment>
          );
         }
     }
  
-export default moviesMap;
+export default MoviesMap;
 
 

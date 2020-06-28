@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
 const ListGroup = (props) => {
 
-    const {items , onItemSelect ,textProperty , valueProperty , selectedItem } = props;
+    const {items , onItemSelect , selectedItem } = props;
     return (                 
 <ul className="list-groups" style={{marginTop: "5rem"}}>
 

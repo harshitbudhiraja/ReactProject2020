@@ -1,16 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App';
 // import './index.css';
 // import App from './App';
 // import hello from './home'
 import * as serviceWorker from './serviceWorker';
-import Counters from './counters';
+import {BrowserRouter} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Counters />
+  <BrowserRouter>
+    {/* <Counters /> */}
+    <App/>
+  </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
